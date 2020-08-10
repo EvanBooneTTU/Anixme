@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { NavLink } from "react-router-dom";
 
 const Card = styled.div`
   margin: 0;
@@ -20,12 +21,18 @@ const AnimeImage = styled.img`
   height: 450px;
 `;
 
+const AnimeLink = styled(NavLink)`
+  text-decoration: none;
+`;
+
 const AnimeCard = (props) => {
   //Will receive props.src for image source, props.url for Link, props.animeName for name,
   return (
     <Card>
-      <AnimeImage src="/Images/DUMMY_ANIME_IMAGE.jpg" alt="Anime" />
-      <AnimeTitle>Title Is the name of the Anime</AnimeTitle>
+      <AnimeLink to={"/anime/" + props.animeURLTitle + "/"}>
+        <AnimeImage src={props.animeImage} alt={props.animeTitle} />
+        <AnimeTitle>{props.animeTitle}</AnimeTitle>
+      </AnimeLink>
     </Card>
   );
 };

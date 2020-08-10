@@ -18,21 +18,81 @@ function App() {
     <Router>
       <Navbar />
       <AnimeGrid>
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
-        <AnimeCard />
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />
+        <AnimeCard
+          animeTitle="Sword Art Online"
+          animeURLTitle="SwordArtOnline"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />{" "}
+        <AnimeCard
+          animeTitle="naruto"
+          animeURLTitle="naruto"
+          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
+        />
       </AnimeGrid>
       <MobileNavbar />
     </Router>

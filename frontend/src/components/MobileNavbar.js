@@ -25,8 +25,6 @@ const NavItem = styled.img`
   align-items: center;
 `;
 
-const Container = styled.div``;
-
 const MobileNavbar = () => {
   return (
     <NavbarWrapper>

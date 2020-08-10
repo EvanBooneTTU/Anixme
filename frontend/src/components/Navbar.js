@@ -64,12 +64,12 @@ const Navbar = () => {
           </RightButtonListItem>
           <RightButtonListItem>
             <NavButton>
-              <ButtonLink to="/">Popular</ButtonLink>
+              <ButtonLink to="/Popular/">Popular</ButtonLink>
             </NavButton>
           </RightButtonListItem>
           <RightButtonListItem>
             <NavButton>
-              <ButtonLink to="/">Browse</ButtonLink>
+              <ButtonLink to="/Browse/">Browse</ButtonLink>
             </NavButton>
           </RightButtonListItem>
         </RightButtonList>
