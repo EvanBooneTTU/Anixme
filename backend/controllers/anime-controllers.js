@@ -1,35 +1,69 @@
 const HttpError = require("../models/http-error");
-const DUMMY_ANIME = require("./DUMMY_ANIME").DUMMY_ANIME;
+const Anime = require("../models/Anime");
 
-const getAnimeByName = (req, res, next) => {
-  const animeName = req.params.name; // { name: "18if" }
-  animeName2 = animeName.split("%20").join(" "); //Replaces %20 in url with spaces to find title.
-  animeName3 = animeName.split("`").join("/"); //Replaces %60, (the `) with the slashes the name originally had
+const getAnimeByName = async (req, res, next) => {
+  const animeName = req.params.name;
 
-  const anime = DUMMY_ANIME.find((a) => {
-    return a.anime_name === animeName3;
-  });
+  let animeData;
 
-  if (!anime) {
-    return next(new HttpError("Could not find anime from given name.", 404));
+  try {
+    animeData = await Anime.find({ api_anime_name: animeName });
+  } catch (err) {
+    const error = new HttpError(
+      "Fetching Anime failed, please try again later",
+      500
+    );
+    return next(error);
   }
 
-  res.json({ anime }); // => { place } => { place: place }
+  if (!animeData || animeData.length === 0) {
+    return next(
+      new HttpError("Could not find Anime for the provided anime name.", 404)
+    );
+  }
+
+  res.json({
+    animeData: animeData.map((anime) => anime.toObject({ getters: true })),
+  });
 };
 
-const getAnimeByPage = (req, res, next) => {
-  const animePage = req.params.page; // { page: "10" }
-  //14 Anime per page
-  const endAnimeIndex = animePage * 14; //Page 1 = 13 index
-  const startAnimeIndex = endAnimeIndex - 14; //Page 1 = 0 index
+const getAnimeByPage = async (req, res, next) => {
+  const animePage = req.params.page;
 
-  const animes = DUMMY_ANIME.slice(startAnimeIndex, endAnimeIndex);
+  const endIndex = animePage * 15; //15 Anime per Page
+  const startIndex = endIndex - 15;
 
-  if (!animes) {
-    return next(new HttpError("Could not find anime from given name.", 404));
+  var indexes = [];
+
+  //Makes an array of the indexes to be grabbed
+  for (var i = startIndex; i < endIndex; i++) {
+    indexes.push(i);
   }
 
-  res.json({ animes });
+  let animeData;
+
+  //Grabs anime data from startIndex to endIndex
+  try {
+    animeData = await Anime.find({
+      index: { $in: indexes },
+    });
+  } catch (err) {
+    const error = new HttpError(
+      "Fetching Anime failed, please try again later",
+      500
+    );
+    return next(error);
+  }
+
+  if (!animeData || animeData.length === 0) {
+    return next(
+      new HttpError("Could not find Anime for the provided anime name.", 404)
+    );
+  }
+
+  res.json({
+    animeData: animeData.map((anime) => anime.toObject({ getters: true })),
+  });
 };
 
 exports.getAnimeByName = getAnimeByName;
