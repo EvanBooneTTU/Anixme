@@ -8,92 +8,28 @@ import {
 
 import "./App.css";
 import Navbar from "./components/Navbar";
-import AnimeCard from "./components/AnimeCard";
-import AnimeGrid from "./components/AnimeGrid";
 import MobileNavbar from "./components/MobileNavbar";
 import ExampleGQL from "./components/ExampleGQL";
+import Home from "./Pages/Home";
+import Browse from "./Pages/Browse";
+import Popular from "./Pages/Popular";
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <AnimeGrid>
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />
-        <AnimeCard
-          animeTitle="Sword Art Online"
-          animeURLTitle="SwordArtOnline"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          animeTitle="naruto"
-          animeURLTitle="naruto"
-          animeImage="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />
-      </AnimeGrid>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/Browse/Page:pageNumber" exact>
+          <Browse />
+        </Route>
+        <Route path="/Popular" exact>
+          <Popular />
+        </Route>
+        <Route path="/Anime/:URLTitle" exact></Route>
+      </Switch>
       <MobileNavbar />
     </Router>
   );

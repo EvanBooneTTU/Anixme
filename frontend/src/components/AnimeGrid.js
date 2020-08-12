@@ -6,10 +6,9 @@ const Grid = styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;
-  margin-top: 3rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   justify-items: center;
 
   @media (max-width: 1730px) {
@@ -29,14 +28,8 @@ const Grid = styled.div`
   }
 `;
 
-const Container = styled.div``;
-
 const AnimeGrid = (props) => {
-  return (
-    <Container>
-      <Grid>{props.children}</Grid>
-    </Container>
-  );
+  return <Grid>{props.children}</Grid>;
 };
 
 export default AnimeGrid;

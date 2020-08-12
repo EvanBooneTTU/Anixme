@@ -26,12 +26,11 @@ const AnimeLink = styled(NavLink)`
 `;
 
 const AnimeCard = (props) => {
-  //Will receive props.src for image source, props.url for Link, props.animeName for name,
   return (
     <Card>
-      <AnimeLink to={"/anime/" + props.animeURLTitle + "/"}>
-        <AnimeImage src={props.animeImage} alt={props.animeTitle} />
-        <AnimeTitle>{props.animeTitle}</AnimeTitle>
+      <AnimeLink to={"/Anime/" + props.URLTitle + "/"}>
+        <AnimeImage src={props.src} alt={props.title} />
+        <AnimeTitle>{props.title}</AnimeTitle>
       </AnimeLink>
     </Card>
   );

@@ -18,7 +18,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   align-content: center;
-  width: 80%;
+  width: 89%;
   margin: 0 auto;
 `;
 
@@ -50,7 +50,9 @@ const Navbar = () => {
     <NavbarWrapper>
       <Container>
         <NavButton>
-          <ButtonLink to="/">AniXme</ButtonLink>
+          <ButtonLink to="/" style={{ fontSize: "33px" }}>
+            AniXme
+          </ButtonLink>
         </NavButton>
         <NavButton>
           <ButtonLink to="/">Search Bar Here</ButtonLink>
@@ -69,7 +71,7 @@ const Navbar = () => {
           </RightButtonListItem>
           <RightButtonListItem>
             <NavButton>
-              <ButtonLink to="/Browse/">Browse</ButtonLink>
+              <ButtonLink to="/Browse/Page1">Browse</ButtonLink>
             </NavButton>
           </RightButtonListItem>
         </RightButtonList>
