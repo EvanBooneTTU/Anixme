@@ -3,9 +3,10 @@ import styled from "@emotion/styled";
 import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import AnimeVideo from "./AnimeVideo";
+import AnimePageOverview from "./AnimePageOverview";
 
 const Container = styled.div`
-  width: 1135px;
+  width: 860px;
   top: -330px;
   padding-left: 30px;
   position: relative;
@@ -15,7 +16,14 @@ const Container = styled.div`
 const AnimePageMainArea = (props) => {
   const pageStatus = useParams().pageStatus;
   if (pageStatus === "Overview") {
-    return <Container></Container>;
+    return (
+      <Container>
+        <AnimePageOverview
+          characters={props.characters}
+          trailer={props.trailer}
+        />
+      </Container>
+    );
   } else if (pageStatus === "Watch") {
     return (
       <Container>

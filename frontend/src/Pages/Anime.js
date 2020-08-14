@@ -30,6 +30,22 @@ const GET_ANIME_INFO = gql`
         day
       }
       genres
+      trailer {
+        id
+        site
+        thumbnail
+      }
+      characters {
+        nodes {
+          name {
+            first
+            full
+          }
+          image {
+            large
+          }
+        }
+      }
     }
   }
 `;
@@ -99,7 +115,11 @@ const Anime = (props) => {
           native={data.Media.title.native}
           genres={data.Media.genres}
         />
-        <AnimePageMainArea episodes={loadedAnime.episodes} />
+        <AnimePageMainArea
+          episodes={loadedAnime.episodes}
+          characters={data.Media.characters.nodes}
+          trailer={data.Media.trailer}
+        />
       </React.Fragment>
     );
   }

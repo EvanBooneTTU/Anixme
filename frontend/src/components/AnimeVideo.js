@@ -5,13 +5,13 @@ import ReactPlayer from "react-player";
 import { NavLink } from "react-router-dom";
 
 const VideoContainer = styled.div`
-  width: 1135px;
+  width: 860px;
   height: 550px;
   background-color: black;
 `;
 
 const EpisodeContainer = styled.div`
-  width: 1135px;
+  width: 860px;
   height: 100px;
 `;
 
@@ -52,9 +52,10 @@ const AnimeVideo = (props) => {
       <VideoContainer>
         <ReactPlayer
           url={props.episodes[episodeNumber - 1]}
-          width="1135px"
+          width="860px"
           height="550px"
           controls
+          file
         />
       </VideoContainer>
       <EpisodeContainer>
