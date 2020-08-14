@@ -20,15 +20,16 @@ const H1 = styled.h1`
 `;
 
 const EpisodeNumberContainer = styled.div`
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 60px;
   float: left;
   padding-right: 25px;
+  padding-bottom: 10px;
 `;
 
 const EpisodeBox = styled.div`
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 60px;
   background-color: #151f2f;
   display: flex;
   align-items: center;
@@ -58,16 +59,22 @@ const AnimeVideo = (props) => {
       </VideoContainer>
       <EpisodeContainer>
         <H1>Episodes</H1>
-        <EpisodeNumberContainer>
-          <EpisodeBox>
-            <ButtonLink to={"/Anime/" + URLTitle + "/Watch/"}>01</ButtonLink>
-          </EpisodeBox>
-        </EpisodeNumberContainer>
-        <EpisodeNumberContainer>
-          <EpisodeBox>
-            <ButtonLink to="/Anime/">02</ButtonLink>
-          </EpisodeBox>
-        </EpisodeNumberContainer>
+        {props.episodes.map((Episode, index) => (
+          <EpisodeNumberContainer key={index}>
+            <EpisodeBox
+              style={{
+                backgroundColor:
+                  episodeNumber == index + 1 ? "#0082A6" : "#151f2f",
+              }}
+            >
+              <ButtonLink
+                to={"/Anime/" + URLTitle + "/Watch/Episode/" + (index + 1)}
+              >
+                {index + 1}
+              </ButtonLink>
+            </EpisodeBox>
+          </EpisodeNumberContainer>
+        ))}
       </EpisodeContainer>
     </React.Fragment>
   );

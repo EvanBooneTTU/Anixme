@@ -55,7 +55,7 @@ const months = [
   "Dec",
 ];
 const AnimeInfoPanel = (props) => {
-  const format = props.episodes === 1 ? "Movie" : "TV";
+  const format = props.episode_count === 1 ? "Movie" : "TV";
   let genres;
   if (props.genres) {
     genres = props.genres.join(", ");

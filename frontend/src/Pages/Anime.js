@@ -91,7 +91,7 @@ const Anime = (props) => {
         />
         <AnimeViewButtons />
         <AnimeInfoPanel
-          episode_count={loadedAnime.episodes}
+          episode_count={loadedAnime.episode_count}
           status={data.Media.status.toLowerCase()}
           startDate={data.Media.startDate}
           english={data.Media.title.english}
