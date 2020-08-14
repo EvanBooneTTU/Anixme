@@ -6,6 +6,8 @@ const NavbarWrapper = styled.div`
   width: 100%;
   height: 80px;
   background-color: #151f2f;
+  z-index: 999;
+  position: relative;
 
   @media (max-width: 780px) {
     display: none;

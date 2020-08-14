@@ -13,6 +13,7 @@ import ExampleGQL from "./components/ExampleGQL";
 import Home from "./Pages/Home";
 import Browse from "./Pages/Browse";
 import Popular from "./Pages/Popular";
+import Anime from "./Pages/Anime";
 
 function App() {
   return (
@@ -28,7 +29,9 @@ function App() {
         <Route path="/Popular" exact>
           <Popular />
         </Route>
-        <Route path="/Anime/:URLTitle" exact></Route>
+        <Route path="/Anime/:URLTitle/:pageStatus/(Episode)?/:episode?" exact>
+          <Anime />
+        </Route>
       </Switch>
       <MobileNavbar />
     </Router>

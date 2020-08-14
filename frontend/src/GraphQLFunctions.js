@@ -18,15 +18,12 @@ const GET_ANIME_INFO = gql`
   }
 `;
 
-function ExampleGQL() {
-  const search = "naruto";
+export function GetAnimeData(search) {
   const { data, loading, error } = useQuery(GET_ANIME_INFO, {
     variables: { name: search },
   });
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
-  console.log(data);
-  return <img src={data.Media.bannerImage} alt="Banner" />;
+  if (loading) return null;
+  if (error) return `Error! ${error}`;
+  return data.Media;
+  // return <img src={data.Media.bannerImage} />;
 }
-
-export default ExampleGQL;
