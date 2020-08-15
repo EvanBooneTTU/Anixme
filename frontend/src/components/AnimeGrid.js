@@ -9,6 +9,7 @@ const Grid = styled.div`
   padding-left: 5rem;
   padding-right: 5rem;
   padding-bottom: 1rem;
+  padding-top: 2rem;
   justify-items: center;
 
   @media (max-width: 1730px) {

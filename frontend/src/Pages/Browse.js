@@ -11,7 +11,6 @@ const H1 = styled.h1`
   margin: 0;
   padding-left: 6rem;
   padding-top: 2rem;
-  padding-bottom: 1.5rem;
 
   @media (max-width: 780px) {
     display: flex;

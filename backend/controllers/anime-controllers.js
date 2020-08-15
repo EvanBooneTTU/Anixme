@@ -66,5 +66,28 @@ const getAnimeByPage = async (req, res, next) => {
   });
 };
 
+const getAllAnime = async (req, res, next) => {
+  let animeData;
+
+  try {
+    animeData = await Anime.find({});
+  } catch (err) {
+    const error = new HttpError(
+      "Fetching Anime failed, please try again later",
+      500
+    );
+    return next(error);
+  }
+
+  if (!animeData || animeData.length === 0) {
+    return next(new HttpError("Could not find Anime", 404));
+  }
+
+  res.json({
+    animeData: animeData.map((anime) => anime.toObject({ getters: true })),
+  });
+};
+
 exports.getAnimeByName = getAnimeByName;
 exports.getAnimeByPage = getAnimeByPage;
+exports.getAllAnime = getAllAnime;

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const NavbarWrapper = styled.div`
   width: 100%;
@@ -56,10 +57,7 @@ const Navbar = () => {
             AniXme
           </ButtonLink>
         </NavButton>
-        <NavButton>
-          <ButtonLink to="/">Search Bar Here</ButtonLink>
-        </NavButton>
-
+        <SearchBar />
         <RightButtonList>
           <RightButtonListItem>
             <NavButton>

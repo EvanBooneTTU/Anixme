@@ -8,6 +8,8 @@ router.get("/Anime/:name", animeControllers.getAnimeByName);
 
 router.get("/Browse/page:page", animeControllers.getAnimeByPage);
 
+router.get("/Search", animeControllers.getAllAnime);
+
 //router.get('/user/:uid', placesControllers.getPlaceByUserId);
 
 module.exports = router;
