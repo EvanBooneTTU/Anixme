@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     transition: theme.transitions.create(["border-color", "box-shadow"]),
-    paddingLeft: "60px",
   },
   input: {
     color: "white",
@@ -37,17 +36,6 @@ const theme = createMuiTheme({
     },
   },
 });
-
-function search(searchKey, myArray) {
-  let newArr = [];
-  for (var i = 0; i < myArray.length; i++) {
-    if (myArray[i].anime_name.includes(searchKey)) {
-      newArr.push(myArray[i].anime_name);
-    }
-  }
-  console.log(newArr);
-  return newArr;
-}
 
 const SearchBar = (props) => {
   const history = useHistory();
