@@ -11,6 +11,9 @@ const Container = styled.div`
   padding-left: 30px;
   position: relative;
   float: left;
+  @media (max-width: 1350px) {
+    padding-left: 0px;
+  }
 `;
 
 const AnimePageMainArea = (props) => {

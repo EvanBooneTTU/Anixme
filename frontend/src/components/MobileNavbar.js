@@ -3,6 +3,15 @@ import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
 const NavbarWrapper = styled.div`
+  position: relative;
+  z-index: 999;
+
+  @media (min-width: 780px) {
+    display: none;
+  }
+`;
+
+const Navbar = styled.div`
   position: fixed;
   left: 0;
   bottom: 0;
@@ -28,21 +37,23 @@ const NavItem = styled.img`
 const MobileNavbar = () => {
   return (
     <NavbarWrapper>
-      <NavLink to="/">
-        <NavItem src="/Images/home.png" />
-      </NavLink>
-      <NavLink to="/">
-        <NavItem src="/Images/heart.png" />
-      </NavLink>
-      <NavLink to="/">
-        <NavItem src="/Images/search.png" />
-      </NavLink>
-      <NavLink to="/">
-        <NavItem src="/Images/heart.png" />
-      </NavLink>
-      <NavLink to="/">
-        <NavItem src="/Images/heart.png" />
-      </NavLink>
+      <Navbar>
+        <NavLink to="/">
+          <NavItem src="/Images/home.png" />
+        </NavLink>
+        <NavLink to="/Popular/">
+          <NavItem src="/Images/heart.png" />
+        </NavLink>
+        <NavLink to="/Search/">
+          <NavItem src="/Images/search.png" />
+        </NavLink>
+        <NavLink to="/Browse/Page1">
+          <NavItem src="/Images/book.png" />
+        </NavLink>
+        <NavLink to="/">
+          <NavItem src="/Images/award.png" />
+        </NavLink>
+      </Navbar>
     </NavbarWrapper>
   );
 };

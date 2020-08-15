@@ -10,6 +10,14 @@ const Container = styled.div`
   float: left;
   background-color: #151f2f;
   overflow: hidden;
+
+  @media (max-width: 1350px) {
+    width: 98vw;
+    padding-right: 0px;
+    margin-top: -130px;
+    position: relative;
+    z-index: 101;
+  }
 `;
 
 const TitleStyled = styled(LinesEllipsis)`

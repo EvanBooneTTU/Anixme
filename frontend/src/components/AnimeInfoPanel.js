@@ -6,6 +6,11 @@ const Container = styled.div`
   height: 650px;
   padding-left: 220px;
   position: relative;
+
+  @media (max-width: 1350px) {
+    width: 100vw;
+    padding-left: 0px;
+  }
 `;
 
 const H2 = styled.h4`

@@ -7,8 +7,6 @@ const Card = styled.div`
   height: 520px;
   width: 300px;
   border-radius: 1px;
-  position: relative;
-  z-index: 10;
 `;
 
 const AnimeTitle = styled.div`
@@ -49,6 +47,10 @@ const BackgroundFill = styled.div`
   width: 220px;
   height: 190px;
   float: left;
+
+  @media (max-width: 1350px) {
+    background-color: #0c1622;
+  }
 `;
 
 const AnimeCard = (props) => {

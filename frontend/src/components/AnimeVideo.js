@@ -13,6 +13,11 @@ const VideoContainer = styled.div`
 const EpisodeContainer = styled.div`
   width: 860px;
   height: 100px;
+
+  @media (max-width: 1350px) {
+    max-width: 750px;
+    width: 95vw;
+  }
 `;
 
 const H1 = styled.h1`
@@ -47,12 +52,13 @@ const ButtonLink = styled(NavLink)`
 const AnimeVideo = (props) => {
   const episodeNumber = useParams().episode;
   const URLTitle = useParams().URLTitle;
+  let width = window.innerWidth;
   return (
     <React.Fragment>
       <VideoContainer>
         <ReactPlayer
           url={props.episodes[episodeNumber - 1]}
-          width="860px"
+          width={width < 1350 ? width - 50 : "781px"}
           height="550px"
           controls
           file

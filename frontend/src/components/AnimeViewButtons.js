@@ -9,11 +9,22 @@ const Container = styled.div`
   background-color: #151f2f;
   float: left;
   margin-top: -130px;
+
+  @media (max-width: 1350px) {
+    width: 100vw;
+    padding-top: 110px;
+    padding-left: 30px;
+    position: relative;
+    z-index: 100;
+  }
 `;
 
 const ButtonsContainer = styled.div`
   padding-left: 470px;
   height: 100%;
+  @media (max-width: 1350px) {
+    padding-left: 0px;
+  }
 `;
 
 const Button = styled.button`

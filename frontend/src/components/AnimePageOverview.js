@@ -4,7 +4,13 @@ import ReactPlayer from "react-player";
 
 const Container = styled.div`
   width: 860px;
-  padding-bottom: 500px;
+  padding-bottom: 650px;
+  @media (max-width: 1350px) {
+    width: 98vw;
+    margin-top: 200px;
+    padding-left: 2vw;
+    background-color: #151f2f;
+  }
 `;
 
 const CharacterContainer = styled.div`
@@ -32,6 +38,7 @@ const H2 = styled.h2`
 `;
 
 const AnimePageOverview = (props) => {
+  let width = window.innerWidth;
   return (
     <Container>
       <H2>Characters</H2>
@@ -53,7 +60,7 @@ const AnimePageOverview = (props) => {
       {props.trailer && (
         <ReactPlayer
           url={"https://www.youtube.com/watch?v=" + props.trailer.id}
-          width="781px"
+          width={width < 1350 ? width - 50 : "781px"}
           height="430px"
           controls
           youtube
