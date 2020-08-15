@@ -56,7 +56,11 @@ const Anime = (props) => {
   const [loadedAnime, setloadedAnime] = useState();
   const URLTitle = useParams().URLTitle;
   //anilist API Query
-  const [getAnime, { called, loading, data }] = useLazyQuery(GET_ANIME_INFO);
+  const [getAnime, { called, loading, data }] = useLazyQuery(GET_ANIME_INFO, {
+    onError(error) {
+      console.log(error);
+    },
+  });
 
   useEffect(() => {
     const fetchAnime = async () => {
@@ -64,6 +68,7 @@ const Anime = (props) => {
         const responseData = await sendRequest(
           "http://localhost:5000/api/anime/" + URLTitle
         );
+        console.log(URLTitle);
         setloadedAnime(responseData.animeData[0]);
       } catch (err) {
         console.log(err);
@@ -85,18 +90,22 @@ const Anime = (props) => {
     });
   }
 
-  if (loading || !data) {
-    return null;
+  if (loading) {
+    return <h1 style={{ color: "white", textAlign: "center" }}>Loading</h1>;
   }
 
-  if (data) {
+  if (loadedAnime && (data || !loading) && !isLoading) {
     //Removes any html elements or Source() elements from the api returned desription
-    let description = data.Media.description.replace(/<.*>/g, "");
-    description = description.replace(/\(Source.*\)/g, "");
+    let description;
+    if (data) {
+      description = data.Media.description.replace(/<.*>/g, "");
+      description = description.replace(/\(Source.*\)/g, "");
+    }
+    console.log(loadedAnime);
 
     return (
       <React.Fragment>
-        <AnimeBanner src={data.Media.bannerImage} />
+        <AnimeBanner src={data ? data.Media.bannerImage : null} />
         <AnimeCard
           src={"/Images/AnimeCovers/" + loadedAnime.api_anime_name + ".jpg"}
           animePage={true}
@@ -108,20 +117,22 @@ const Anime = (props) => {
         <AnimeViewButtons />
         <AnimeInfoPanel
           episode_count={loadedAnime.episode_count}
-          status={data.Media.status.toLowerCase()}
-          startDate={data.Media.startDate}
-          english={data.Media.title.english}
-          romaji={data.Media.title.romaji}
-          native={data.Media.title.native}
-          genres={data.Media.genres}
+          status={data ? data.Media.status.toLowerCase() : null}
+          startDate={data ? data.Media.startDate : null}
+          english={data ? data.Media.title.english : null}
+          romaji={data ? data.Media.title.romaji : null}
+          native={data ? data.Media.title.native : null}
+          genres={data ? data.Media.genres : null}
         />
         <AnimePageMainArea
           episodes={loadedAnime.episodes}
-          characters={data.Media.characters.nodes}
-          trailer={data.Media.trailer}
+          characters={data ? data.Media.characters.nodes : null}
+          trailer={data ? data.Media.trailer : null}
         />
       </React.Fragment>
     );
+  } else {
+    return <h1 style={{ color: "white", textAlign: "center" }}>Loading</h1>;
   }
 };
 

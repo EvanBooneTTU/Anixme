@@ -35,14 +35,21 @@ const AnimePageOverview = (props) => {
   return (
     <Container>
       <H2>Characters</H2>
-      {props.characters.slice(0, 12).map((Character, index) => (
-        <CharacterContainer>
-          <CharacterImage src={Character.image.large} alt="Anime Character" />
-          <H3>
-            {Character.name.first ? Character.name.first : Character.name.full}
-          </H3>
-        </CharacterContainer>
-      ))}
+      {props.characters
+        ? props.characters.slice(0, 12).map((Character, index) => (
+            <CharacterContainer>
+              <CharacterImage
+                src={Character.image.large}
+                alt="Anime Character"
+              />
+              <H3>
+                {Character.name.first
+                  ? Character.name.first
+                  : Character.name.full}
+              </H3>
+            </CharacterContainer>
+          ))
+        : null}
       {props.trailer && (
         <ReactPlayer
           url={"https://www.youtube.com/watch?v=" + props.trailer.id}

@@ -14,6 +14,7 @@ import Home from "./Pages/Home";
 import Browse from "./Pages/Browse";
 import Popular from "./Pages/Popular";
 import Anime from "./Pages/Anime";
+import Search from "./Pages/Search";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/Anime/:URLTitle/:pageStatus/(Episode)?/:episode?" exact>
           <Anime />
+        </Route>
+        <Route path="/Search/:search" exact>
+          <Search />
         </Route>
       </Switch>
       <MobileNavbar />
