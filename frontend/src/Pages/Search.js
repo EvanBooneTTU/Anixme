@@ -39,6 +39,7 @@ const Search = (props) => {
   }
 
   let Results = search(searchQuery, loadedAnime);
+  console.log(Results);
 
   if (Results.length == 0) {
     return (

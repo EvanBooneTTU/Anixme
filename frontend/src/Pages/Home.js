@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import AnimeCard from "../components/AnimeCard";
 import AnimeGrid from "../components/AnimeGrid";
+import { TopAnime } from "../TopAnime";
 
 const H1 = styled.h1`
   color: #979ca0;
@@ -18,83 +19,16 @@ const H1 = styled.h1`
 const Home = (props) => {
   return (
     <React.Fragment>
-      <H1>Recommended</H1>
+      <H1>Top of All Time</H1>
       <AnimeGrid>
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />
-        <AnimeCard
-          title="Sword Art Online"
-          URLTitle="SwordArtOnline"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />{" "}
-        <AnimeCard
-          title="naruto"
-          URLTitle="naruto"
-          src="/Images/DUMMY_ANIME_IMAGE.jpg"
-        />
+        {TopAnime.map((Anime) => (
+          <AnimeCard
+            title={Anime.anime_name}
+            URLTitle={Anime.api_anime_name}
+            src={"/Images/AnimeCovers/" + Anime.api_anime_name + ".jpg"}
+            key={Anime.index}
+          />
+        ))}
       </AnimeGrid>
     </React.Fragment>
   );
