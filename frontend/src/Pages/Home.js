@@ -5,7 +5,7 @@ import AnimeGrid from "../components/AnimeGrid";
 import { TopAnime } from "../TopAnime";
 
 const H1 = styled.h1`
-  color: #979ca0;
+  color: ${(props) => props.theme.color.text};
   margin: 0;
   padding-left: 6rem;
   padding-top: 2rem;
@@ -17,6 +17,7 @@ const H1 = styled.h1`
 `;
 
 const Home = (props) => {
+  console.log(props);
   return (
     <React.Fragment>
       <H1>Top of All Time</H1>

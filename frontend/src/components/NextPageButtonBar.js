@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const ButtonContainer = styled.div`
   height: 50px;
@@ -34,7 +36,7 @@ const IconImage = styled.img`
 const ButtonLink = styled(NavLink)`
   text-decoration: none;
   font-size: 25px;
-  color: white;
+  color: ${(props) => props.theme.color.text};
 `;
 
 const NextPageButtonBar = (props) => {
@@ -44,15 +46,21 @@ const NextPageButtonBar = (props) => {
       {props.currentPage > 1 && (
         <IconButton>
           <ButtonLink to={"/Browse/Page" + (props.currentPage - 1)}>
-            <Icon>
-              <IconImage src="/Images/arrowsBack.png" />
-            </Icon>
+            <ArrowBackIcon
+              fontSize="large"
+              style={{
+                paddingTop: "5px",
+                fill: props.darkMode ? "#9FADBD" : "#26343F",
+              }}
+            />
           </ButtonLink>
         </IconButton>
       )}
       <IconButton>
         <ButtonLink to={"/Browse/Page" + props.currentPage}>
-          <Icon style={{ backgroundColor: "lightgray" }}>
+          <Icon
+            style={{ backgroundColor: props.darkMode ? "#151F2F" : "#FBFBFB" }}
+          >
             {props.currentPage}
           </Icon>
         </ButtonLink>
@@ -74,9 +82,13 @@ const NextPageButtonBar = (props) => {
       {props.currentPage < lastPage && (
         <IconButton>
           <ButtonLink to={"/Browse/Page" + (props.currentPage + 1)}>
-            <Icon>
-              <IconImage src="/Images/arrowsForward.png" />
-            </Icon>
+            <ArrowForwardIcon
+              fontSize="large"
+              style={{
+                paddingTop: "5px",
+                fill: props.darkMode ? "#9FADBD" : "#26343F",
+              }}
+            />
           </ButtonLink>
         </IconButton>
       )}

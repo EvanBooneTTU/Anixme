@@ -13,7 +13,7 @@ const AnimeTitle = styled.div`
   font-size: 15px;
   margin: 0;
   font-weight: 700;
-  color: #8092ab;
+  color: ${(props) => props.theme.color.text};
 `;
 
 const AnimeImage = styled.img`
@@ -43,13 +43,13 @@ const AnimePageImage = styled.img`
 `;
 
 const BackgroundFill = styled.div`
-  background-color: #151f2f;
+  background-color: ${(props) => props.theme.color.alternateBackground};
   width: 220px;
   height: 190px;
   float: left;
 
   @media (max-width: 1350px) {
-    background-color: #0c1622;
+    background-color: ${(props) => props.theme.color.background};
   }
 `;
 

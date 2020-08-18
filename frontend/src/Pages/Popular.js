@@ -5,7 +5,7 @@ import AnimeGrid from "../components/AnimeGrid";
 import { PopularAnime } from "../PopularAnime";
 
 const H1 = styled.h1`
-  color: #979ca0;
+  color: ${(props) => props.theme.color.text};
   margin: 0;
   padding-left: 6rem;
   padding-top: 2rem;

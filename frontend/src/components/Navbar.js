@@ -2,11 +2,13 @@ import React from "react";
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import Brightness3Icon from "@material-ui/icons/Brightness3";
+import WbSunnyIcon from "@material-ui/icons/WbSunny";
 
 const NavbarWrapper = styled.div`
   width: 100%;
   height: 80px;
-  background-color: #151f2f;
+  background-color: ${(props) => props.theme.color.alternateBackground};
   z-index: 999;
   position: relative;
 
@@ -48,7 +50,16 @@ const RightButtonListItem = styled.li`
   cursor: pointer;
 `;
 
-const Navbar = () => {
+const DarkModeButton = styled.button`
+  all: unset;
+`;
+
+const DarkModeImage = styled.img`
+  width: 50px;
+  height: 50px;
+`;
+
+const Navbar = (props) => {
   return (
     <NavbarWrapper>
       <Container>
@@ -73,6 +84,15 @@ const Navbar = () => {
             <NavButton>
               <ButtonLink to="/Browse/Page1">Browse</ButtonLink>
             </NavButton>
+          </RightButtonListItem>
+          <RightButtonListItem>
+            <DarkModeButton onClick={props.darkModeClick}>
+              {props.darkMode ? (
+                <WbSunnyIcon style={{ fill: "#9FADBD" }} fontSize="large" />
+              ) : (
+                <Brightness3Icon style={{ fill: "#26343F" }} fontSize="large" />
+              )}
+            </DarkModeButton>
           </RightButtonListItem>
         </RightButtonList>
       </Container>

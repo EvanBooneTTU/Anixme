@@ -7,7 +7,7 @@ import { useHttpClient } from "../Hooks/http-hook";
 import NextPageButtonBar from "../components/NextPageButtonBar";
 
 const H1 = styled.h1`
-  color: #979ca0;
+  color: ${(props) => props.theme.color.text};
   margin: 0;
   padding-left: 6rem;
   padding-top: 2rem;
@@ -54,7 +54,7 @@ const Browse = (props) => {
             />
           ))}
       </AnimeGrid>
-      <NextPageButtonBar currentPage={pageNumber} />
+      <NextPageButtonBar darkMode={props.darkMode} currentPage={pageNumber} />
     </React.Fragment>
   );
 };

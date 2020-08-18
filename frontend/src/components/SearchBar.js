@@ -74,7 +74,7 @@ const SearchBar = (props) => {
             },
           }}
           InputLabelProps={{
-            style: { color: "white" },
+            style: { color: "#3cbbd6" },
           }}
         />
       </MuiThemeProvider>

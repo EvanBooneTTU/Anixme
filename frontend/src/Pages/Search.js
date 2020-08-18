@@ -23,6 +23,23 @@ const SearchBarContainer = styled.div`
   justify-content: center;
 `;
 
+const H1 = styled.h1`
+  color: ${(props) => props.theme.color.text};
+  margin: 0;
+  padding-left: 6rem;
+  padding-top: 2rem;
+  @media (max-width: 780px) {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+  }
+`;
+
+const LoadingContainer = styled.div`
+  height: calc(100vh - 80px);
+  width: 100%;
+`;
+
 const Search = (props) => {
   const { isLoading, error, sendRequest } = useHttpClient();
   const [loadedAnime, setloadedAnime] = useState();
@@ -44,14 +61,20 @@ const Search = (props) => {
   }, [sendRequest]);
 
   if (isLoading || error || !loadedAnime) {
-    return <h1 style={{ color: "white", textAlign: "center" }}>Loading</h1>;
+    return (
+      <LoadingContainer>
+        <H1>Loading</H1>;
+      </LoadingContainer>
+    );
   }
 
   let Results = search(searchQuery, loadedAnime);
 
   if (Results.length == 0) {
     return (
-      <h1 style={{ color: "white", textAlign: "center" }}>No Anime Found</h1>
+      <LoadingContainer>
+        <H1>No Anime Found</H1>;
+      </LoadingContainer>
     );
   }
   return (
@@ -61,7 +84,7 @@ const Search = (props) => {
           <SearchBar />
         </SearchBarContainer>
       ) : null}
-
+      <H1>Search Results</H1>
       <AnimeGrid>
         {Results.map((Anime) => (
           <AnimeCard
