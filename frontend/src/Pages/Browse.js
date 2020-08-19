@@ -7,7 +7,6 @@ import { useHttpClient } from "../Hooks/http-hook";
 import NextPageButtonBar from "../components/NextPageButtonBar";
 
 const H1 = styled.h1`
-  color: ${(props) => props.theme.color.text};
   margin: 0;
   padding-left: 6rem;
   padding-top: 2rem;

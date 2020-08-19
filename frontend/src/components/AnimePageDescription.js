@@ -8,7 +8,7 @@ const Container = styled.div`
   width: calc(100vw - 755px);
   padding-right: 300px;
   float: left;
-  background-color: #151f2f;
+  background-color: ${(props) => props.theme.color.alternateBackground};
   overflow: hidden;
 
   @media (max-width: 1350px) {
@@ -21,7 +21,6 @@ const Container = styled.div`
 `;
 
 const TitleStyled = styled(LinesEllipsis)`
-  color: #97a1aa;
   margin-left: 30px;
   font-size: 40px;
   margin-top: 10px;
@@ -29,7 +28,6 @@ const TitleStyled = styled(LinesEllipsis)`
 `;
 
 const DescriptionStyled = styled(LinesEllipsis)`
-  color: #97a1aa;
   margin-left: 30px;
   font-size: 18px;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,

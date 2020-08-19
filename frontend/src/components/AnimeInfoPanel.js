@@ -19,7 +19,6 @@ const H2 = styled.h4`
   padding-top: 12px;
   margin: 0;
   text-transform: capitalize;
-  color: #97a1aa;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 `;
@@ -30,14 +29,13 @@ const H4 = styled.h4`
   padding-top: 12px;
   margin: 0;
   text-transform: capitalize;
-  color: #97a1aa;
   font-weight: normal;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 `;
 
 const DataArea = styled.div`
-  background-color: #151f2f;
+  background-color: ${(props) => props.theme.color.alternateBackground};
   height: calc(100% - 10px);
   width: 100%;
   float: left;

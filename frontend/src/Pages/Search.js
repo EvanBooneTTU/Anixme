@@ -63,7 +63,7 @@ const Search = (props) => {
   if (isLoading || error || !loadedAnime) {
     return (
       <LoadingContainer>
-        <H1>Loading</H1>;
+        <H1>Loading</H1>
       </LoadingContainer>
     );
   }

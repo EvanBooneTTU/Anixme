@@ -4,12 +4,12 @@ import ReactPlayer from "react-player";
 
 const Container = styled.div`
   width: 860px;
-  padding-bottom: 650px;
+  padding-bottom: 350px;
   @media (max-width: 1350px) {
     width: 98vw;
     margin-top: 200px;
     padding-left: 2vw;
-    background-color: #151f2f;
+    background-color: ${(props) => props.theme.color.alternateBackground};
   }
 `;
 
@@ -29,19 +29,14 @@ const CharacterImage = styled.img`
 
 const H3 = styled.h3`
   margin: 0;
-  color: #97a1aa;
   text-align: center;
-`;
-
-const H2 = styled.h2`
-  color: #97a1aa;
 `;
 
 const AnimePageOverview = (props) => {
   let width = window.innerWidth;
   return (
     <Container>
-      <H2>Characters</H2>
+      <h2>Characters</h2>
       {props.characters
         ? props.characters.slice(0, 12).map((Character, index) => (
             <CharacterContainer>

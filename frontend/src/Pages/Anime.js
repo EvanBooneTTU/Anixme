@@ -9,6 +9,7 @@ import AnimePageDescription from "../components/AnimePageDescription";
 import AnimeInfoPanel from "../components/AnimeInfoPanel";
 import AnimeViewButtons from "../components/AnimeViewButtons";
 import AnimePageMainArea from "../components/AnimePageMainArea";
+import styled from "@emotion/styled";
 
 const GET_ANIME_INFO = gql`
   query GetAnimeInfo($name: String!) {
@@ -68,7 +69,6 @@ const Anime = (props) => {
         const responseData = await sendRequest(
           "http://localhost:5000/api/anime/" + URLTitle
         );
-        console.log(URLTitle);
         setloadedAnime(responseData.animeData[0]);
       } catch (err) {
         console.log(err);
@@ -101,7 +101,6 @@ const Anime = (props) => {
       description = data.Media.description.replace(/<.*>/g, "");
       description = description.replace(/\(Source.*\)/g, "");
     }
-    console.log(loadedAnime);
 
     return (
       <React.Fragment>

@@ -8,6 +8,9 @@ const VideoContainer = styled.div`
   width: 860px;
   height: 550px;
   background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const EpisodeContainer = styled.div`
@@ -18,10 +21,6 @@ const EpisodeContainer = styled.div`
     max-width: 750px;
     width: 95vw;
   }
-`;
-
-const H1 = styled.h1`
-  color: #97a1aa;
 `;
 
 const EpisodeNumberContainer = styled.div`
@@ -35,7 +34,7 @@ const EpisodeNumberContainer = styled.div`
 const EpisodeBox = styled.div`
   height: 40px;
   width: 60px;
-  background-color: #151f2f;
+  background-color: ${(props) => props.theme.color.alternateBackground};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,9 +43,6 @@ const EpisodeBox = styled.div`
 const ButtonLink = styled(NavLink)`
   text-decoration: none;
   font-size: 25px;
-  color: #97a1aa;
-  &:hover {
-  }
 `;
 
 const AnimeVideo = (props) => {
@@ -65,19 +61,19 @@ const AnimeVideo = (props) => {
         />
       </VideoContainer>
       <EpisodeContainer>
-        <H1>Episodes</H1>
+        <h1>Episodes</h1>
         {props.episodes.map((Episode, index) => (
           <EpisodeNumberContainer key={index}>
             <EpisodeBox
               style={{
-                backgroundColor:
-                  episodeNumber == index + 1 ? "#0082A6" : "#151f2f",
+                backgroundColor: episodeNumber == index + 1 ? "#0082A6" : "",
               }}
             >
               <ButtonLink
                 to={"/Anime/" + URLTitle + "/Watch/Episode/" + (index + 1)}
+                key={"button" + index}
               >
-                {index + 1}
+                <h4 style={{ margin: "0" }}>{index + 1}</h4>
               </ButtonLink>
             </EpisodeBox>
           </EpisodeNumberContainer>

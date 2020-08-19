@@ -88,9 +88,9 @@ const Navbar = (props) => {
           <RightButtonListItem>
             <DarkModeButton onClick={props.darkModeClick}>
               {props.darkMode ? (
-                <WbSunnyIcon style={{ fill: "#9FADBD" }} fontSize="large" />
+                <WbSunnyIcon style={{ fill: "#FFFF66" }} fontSize="large" />
               ) : (
-                <Brightness3Icon style={{ fill: "#26343F" }} fontSize="large" />
+                <Brightness3Icon style={{ fill: "#0C1622" }} fontSize="large" />
               )}
             </DarkModeButton>
           </RightButtonListItem>

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
+import Brightness3Icon from "@material-ui/icons/Brightness3";
+import WbSunnyIcon from "@material-ui/icons/WbSunny";
 
 const NavbarWrapper = styled.div`
   position: relative;
@@ -34,7 +36,15 @@ const NavItem = styled.img`
   align-items: center;
 `;
 
-const MobileNavbar = () => {
+const DarkThemeIcon = styled.button`
+  all: unset;
+  width: 50px;
+  height: 50px;
+
+  align-items: center;
+`;
+
+const MobileNavbar = (props) => {
   return (
     <NavbarWrapper>
       <Navbar>
@@ -51,7 +61,13 @@ const MobileNavbar = () => {
           <NavItem src="/Images/book.png" />
         </NavLink>
         <NavLink to="/">
-          <NavItem src="/Images/award.png" />
+          <DarkThemeIcon onClick={props.darkModeClick}>
+            {props.darkMode ? (
+              <WbSunnyIcon style={{ fill: "#FFFF66" }} fontSize="large" />
+            ) : (
+              <Brightness3Icon style={{ fill: "black" }} fontSize="large" />
+            )}
+          </DarkThemeIcon>
         </NavLink>
       </Navbar>
     </NavbarWrapper>

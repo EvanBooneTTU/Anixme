@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const Container = styled.div`
   height: 100px;
   width: 100%;
-  background-color: #151f2f;
+  background-color: ${(props) => props.theme.color.alternateBackground};
   float: left;
   margin-top: -130px;
 
@@ -36,8 +36,13 @@ const Button = styled.button`
 const ButtonLink = styled(NavLink)`
   text-decoration: none;
   font-size: 25px;
-  color: #97a1aa;
+  &:visited {
+    all: unset;
+    text-decoration: none;
+    font-size: 25px;
+  }
   &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -50,7 +55,9 @@ const AnimeViewButtons = (props) => {
         <Button>
           <ButtonLink
             to={"/Anime/" + URLTitle + "/Overview"}
-            style={{ color: pageStatus === "Overview" ? "#3cbbd6" : "#97a1aa" }}
+            style={{
+              color: pageStatus === "Overview" ? "#3cbbd6" : "",
+            }}
           >
             Overview
           </ButtonLink>
@@ -58,7 +65,7 @@ const AnimeViewButtons = (props) => {
         <Button>
           <ButtonLink
             to={"/Anime/" + URLTitle + "/Watch/Episode/1"}
-            style={{ color: pageStatus === "Watch" ? "#3cbbd6" : "#97a1aa" }}
+            style={{ color: pageStatus === "Watch" ? "#3cbbd6" : "" }}
           >
             Watch
           </ButtonLink>

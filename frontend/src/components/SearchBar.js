@@ -70,7 +70,7 @@ const SearchBar = (props) => {
           onChange={handleChange}
           InputProps={{
             style: {
-              color: "white",
+              color: "#3cbbd6",
             },
           }}
           InputLabelProps={{

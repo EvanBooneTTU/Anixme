@@ -8,7 +8,7 @@ const BannerContainer = styled.div`
   background-position: 50% 0%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #151c22;
+  background-color: ${(props) => props.theme.color.background};
   z-index: 1;
   position: relative;
 `;
