@@ -5,9 +5,21 @@ import ReactPlayer from "react-player";
 import AnimeVideo from "./AnimeVideo";
 import AnimePageOverview from "./AnimePageOverview";
 
-const Container = styled.div`
+const OverviewContainer = styled.div`
   width: 860px;
-  top: -330px;
+  top: -230px;
+  padding-left: 30px;
+  position: relative;
+  float: left;
+  background-color: ${(props) => props.theme.color.alternateBackground};
+  @media (max-width: 1350px) {
+    padding-left: 0px;
+  }
+`;
+
+const VideoContainer = styled.div`
+  width: 860px;
+  top: -230px;
   padding-left: 30px;
   position: relative;
   float: left;
@@ -20,18 +32,18 @@ const AnimePageMainArea = (props) => {
   const pageStatus = useParams().pageStatus;
   if (pageStatus === "Overview") {
     return (
-      <Container>
+      <OverviewContainer>
         <AnimePageOverview
           characters={props.characters}
           trailer={props.trailer}
         />
-      </Container>
+      </OverviewContainer>
     );
   } else if (pageStatus === "Watch") {
     return (
-      <Container>
+      <VideoContainer>
         <AnimeVideo episodes={props.episodes} />
-      </Container>
+      </VideoContainer>
     );
   } else {
     return null;

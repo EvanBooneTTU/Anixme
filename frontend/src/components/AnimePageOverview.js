@@ -5,8 +5,10 @@ import ReactPlayer from "react-player";
 const Container = styled.div`
   width: 860px;
   padding-bottom: 350px;
+  background-color: ${(props) => props.theme.color.alternateBackground};
+
   @media (max-width: 1350px) {
-    width: 98vw;
+    width: 100vw;
     margin-top: 200px;
     padding-left: 2vw;
     background-color: ${(props) => props.theme.color.alternateBackground};

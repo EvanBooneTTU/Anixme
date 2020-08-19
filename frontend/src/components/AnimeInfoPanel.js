@@ -3,9 +3,10 @@ import styled from "@emotion/styled";
 
 const Container = styled.div`
   width: 215px;
-  height: 650px;
+  height: 550px;
   padding-left: 220px;
   position: relative;
+  z-index: 100;
 
   @media (max-width: 1350px) {
     width: 100vw;

@@ -36,14 +36,6 @@ const Button = styled.button`
 const ButtonLink = styled(NavLink)`
   text-decoration: none;
   font-size: 25px;
-  &:visited {
-    all: unset;
-    text-decoration: none;
-    font-size: 25px;
-  }
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const AnimeViewButtons = (props) => {
@@ -53,21 +45,27 @@ const AnimeViewButtons = (props) => {
     <Container>
       <ButtonsContainer>
         <Button>
-          <ButtonLink
-            to={"/Anime/" + URLTitle + "/Overview"}
-            style={{
-              color: pageStatus === "Overview" ? "#3cbbd6" : "",
-            }}
-          >
-            Overview
+          <ButtonLink to={"/Anime/" + URLTitle + "/Overview"}>
+            <h3
+              style={{
+                color: pageStatus === "Overview" ? "#3cbbd6" : "",
+                margin: "0",
+              }}
+            >
+              Overview
+            </h3>
           </ButtonLink>
         </Button>
         <Button>
-          <ButtonLink
-            to={"/Anime/" + URLTitle + "/Watch/Episode/1"}
-            style={{ color: pageStatus === "Watch" ? "#3cbbd6" : "" }}
-          >
-            Watch
+          <ButtonLink to={"/Anime/" + URLTitle + "/Watch/Episode/1"}>
+            <h3
+              style={{
+                color: pageStatus === "Watch" ? "#3cbbd6" : "",
+                margin: "0",
+              }}
+            >
+              Watch
+            </h3>
           </ButtonLink>
         </Button>
       </ButtonsContainer>
