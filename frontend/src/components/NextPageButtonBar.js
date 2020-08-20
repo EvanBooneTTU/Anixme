@@ -28,11 +28,6 @@ const Icon = styled.div`
   align-items: center;
 `;
 
-const IconImage = styled.img`
-  height: 30px;
-  width: 30px;
-`;
-
 const ButtonLink = styled(NavLink)`
   text-decoration: none;
   font-size: 25px;

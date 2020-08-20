@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { useParams } from "react-router-dom";
-import ReactPlayer from "react-player";
 import AnimeVideo from "./AnimeVideo";
 import AnimePageOverview from "./AnimePageOverview";
 
@@ -12,7 +11,9 @@ const OverviewContainer = styled.div`
   position: relative;
   float: left;
   background-color: ${(props) => props.theme.color.alternateBackground};
+  background-clip: content-box;
   @media (max-width: 1350px) {
+    width: 100vw;
     padding-left: 0px;
   }
 `;

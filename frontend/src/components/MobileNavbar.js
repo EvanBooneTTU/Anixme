@@ -20,6 +20,7 @@ const Navbar = styled.div`
   width: 100%;
   height: 50px;
   background-color: #151f2e;
+  box-shadow: inset 0px 1px 12px 0px rgba(0, 0, 0, 0.7);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-items: center;

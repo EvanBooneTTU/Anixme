@@ -70,7 +70,7 @@ const Search = (props) => {
 
   let Results = search(searchQuery, loadedAnime);
 
-  if (Results.length == 0) {
+  if (Results.length === 0) {
     return (
       <LoadingContainer>
         <H1>No Anime Found</H1>;

@@ -13,10 +13,11 @@ const Container = styled.div`
 
   @media (max-width: 1350px) {
     width: 98vw;
+    padding-left: 2vw;
     padding-right: 0px;
     margin-top: -130px;
     position: relative;
-    z-index: 101;
+    z-index: 151;
   }
 `;
 
@@ -25,6 +26,10 @@ const TitleStyled = styled(LinesEllipsis)`
   font-size: 40px;
   margin-top: 10px;
   margin-bottom: 10px;
+
+  @media (max-width: 1350px) {
+    margin-left: 0px;
+  }
 `;
 
 const DescriptionStyled = styled(LinesEllipsis)`
@@ -32,6 +37,10 @@ const DescriptionStyled = styled(LinesEllipsis)`
   font-size: 18px;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  @media (max-width: 1350px) {
+    margin-left: 0px;
+  }
 `;
 
 const AnimePageDescription = (props) => {

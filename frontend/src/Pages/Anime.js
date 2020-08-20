@@ -9,7 +9,6 @@ import AnimePageDescription from "../components/AnimePageDescription";
 import AnimeInfoPanel from "../components/AnimeInfoPanel";
 import AnimeViewButtons from "../components/AnimeViewButtons";
 import AnimePageMainArea from "../components/AnimePageMainArea";
-import styled from "@emotion/styled";
 
 const GET_ANIME_INFO = gql`
   query GetAnimeInfo($name: String!) {

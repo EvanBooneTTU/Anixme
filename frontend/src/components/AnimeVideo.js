@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
@@ -73,7 +73,7 @@ const AnimeVideo = (props) => {
           <EpisodeNumberContainer key={index}>
             <EpisodeBox
               style={{
-                backgroundColor: episodeNumber == index + 1 ? "#0082A6" : "",
+                backgroundColor: episodeNumber === index + 1 ? "#0082A6" : "",
               }}
             >
               <ButtonLink

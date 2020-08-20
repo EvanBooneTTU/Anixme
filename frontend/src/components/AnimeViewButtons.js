@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -11,11 +11,11 @@ const Container = styled.div`
   margin-top: -130px;
 
   @media (max-width: 1350px) {
-    width: 100vw;
+    width: 98vw;
     padding-top: 110px;
-    padding-left: 30px;
+    padding-left: 2vw;
     position: relative;
-    z-index: 100;
+    z-index: 150;
   }
 `;
 

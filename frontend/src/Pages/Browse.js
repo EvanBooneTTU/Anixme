@@ -18,6 +18,11 @@ const H1 = styled.h1`
   }
 `;
 
+const LoadingContainer = styled.div`
+  height: calc(100vh - 80px);
+  width: 100%;
+`;
+
 const Browse = (props) => {
   const { isLoading, error, sendRequest } = useHttpClient();
   const [loadedAnime, setloadedAnime] = useState();
@@ -40,7 +45,16 @@ const Browse = (props) => {
   return (
     <React.Fragment>
       <H1>Browse</H1>
-      {error && <h1>An error has occurred.</h1>}
+      {error && (
+        <LoadingContainer>
+          <H1>An Error has ocurred, please refresh.</H1>
+        </LoadingContainer>
+      )}
+      {isLoading && (
+        <LoadingContainer>
+          <H1>Loading</H1>
+        </LoadingContainer>
+      )}
       <AnimeGrid>
         {loadedAnime &&
           !error &&

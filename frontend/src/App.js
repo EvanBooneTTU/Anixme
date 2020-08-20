@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 import Navbar from "./components/Navbar";
 import MobileNavbar from "./components/MobileNavbar";
-import ExampleGQL from "./components/ExampleGQL";
 import Home from "./Pages/Home";
 import Browse from "./Pages/Browse";
 import Popular from "./Pages/Popular";
@@ -18,25 +12,8 @@ import Search from "./Pages/Search";
 import EmptySearch from "./Pages/EmptySearch";
 import { withTheme, ThemeProvider } from "emotion-theming";
 import { css, Global } from "@emotion/core";
-//import lightTheme from "./styles/light";
-//import darkTheme from "./styles/dark";
-import styled from "@emotion/styled";
-
-const darkTheme = {
-  color: {
-    background: "#0C1622",
-    alternateBackground: "#151F2F",
-    text: "#9FADBD",
-  },
-};
-
-const lightTheme = {
-  color: {
-    background: "#E5EBF0",
-    alternateBackground: "#FBFBFB",
-    text: "#26343F",
-  },
-};
+import lightTheme from "./styles/light";
+import darkTheme from "./styles/dark";
 
 const makeGlobalStyles = (theme) => css`
   body {

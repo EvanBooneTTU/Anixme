@@ -12,6 +12,10 @@ const NavbarWrapper = styled.div`
   z-index: 999;
   position: relative;
 
+  @media (max-width: 1350px) {
+    width: 100vw;
+  }
+
   @media (max-width: 780px) {
     display: none;
   }
@@ -52,11 +56,6 @@ const RightButtonListItem = styled.li`
 
 const DarkModeButton = styled.button`
   all: unset;
-`;
-
-const DarkModeImage = styled.img`
-  width: 50px;
-  height: 50px;
 `;
 
 const Navbar = (props) => {
