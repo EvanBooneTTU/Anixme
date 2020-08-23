@@ -41,7 +41,7 @@ const DarkThemeIcon = styled.button`
   all: unset;
   width: 50px;
   height: 50px;
-
+  cursor: pointer;
   align-items: center;
 `;
 
@@ -61,15 +61,13 @@ const MobileNavbar = (props) => {
         <NavLink to="/Browse/Page1">
           <NavItem src="/Images/book.png" />
         </NavLink>
-        <NavLink to="/">
-          <DarkThemeIcon onClick={props.darkModeClick}>
-            {props.darkMode ? (
-              <WbSunnyIcon style={{ fill: "#FFFF66" }} fontSize="large" />
-            ) : (
-              <Brightness3Icon style={{ fill: "black" }} fontSize="large" />
-            )}
-          </DarkThemeIcon>
-        </NavLink>
+        <DarkThemeIcon onClick={props.darkModeClick}>
+          {props.darkMode ? (
+            <WbSunnyIcon style={{ fill: "#FFFF66" }} fontSize="large" />
+          ) : (
+            <Brightness3Icon style={{ fill: "black" }} fontSize="large" />
+          )}
+        </DarkThemeIcon>
       </Navbar>
     </NavbarWrapper>
   );
