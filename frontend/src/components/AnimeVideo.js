@@ -75,7 +75,7 @@ const AnimeVideo = (props) => {
           <EpisodeNumberContainer key={index}>
             <EpisodeBox
               style={{
-                backgroundColor: episodeNumber === index + 1 ? "#3cbbd6" : "",
+                backgroundColor: episodeNumber == index + 1 ? "#F55124" : "",
               }}
             >
               <ButtonLink
