@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const VideoContainer = styled.div`
   width: 860px;
-  height: 550px;
+  height: 484px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,9 +23,11 @@ const VideoContainer = styled.div`
 const EpisodeContainer = styled.div`
   width: 860px;
   height: 100px;
+  padding-top: 50px;
 
   @media (max-width: 1350px) {
     max-width: 750px;
+    padding-top: 0px;
     width: 95vw;
   }
 `;
@@ -61,7 +63,7 @@ const AnimeVideo = (props) => {
       <VideoContainer>
         <ReactPlayer
           url={props.episodes[episodeNumber - 1]}
-          width={width < 1350 ? width - 50 : "781px"}
+          width={width < 1350 ? width - 50 : "860px"}
           height={width < 1350 ? width - 100 : "550px"}
           controls
           file
@@ -73,7 +75,7 @@ const AnimeVideo = (props) => {
           <EpisodeNumberContainer key={index}>
             <EpisodeBox
               style={{
-                backgroundColor: episodeNumber === index + 1 ? "#0082A6" : "",
+                backgroundColor: episodeNumber === index + 1 ? "#3cbbd6" : "",
               }}
             >
               <ButtonLink
