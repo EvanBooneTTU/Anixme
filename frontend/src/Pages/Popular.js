@@ -26,6 +26,7 @@ const Popular = (props) => {
           <AnimeCard
             title={Anime.anime_name}
             URLTitle={Anime.api_anime_name}
+            episodeCount={Anime.episode_count}
             src={"/Images/AnimeCovers/" + Anime.api_anime_name + ".jpg"}
             key={Anime.index}
           />

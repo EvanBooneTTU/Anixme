@@ -17,7 +17,6 @@ const H1 = styled.h1`
 `;
 
 const Home = (props) => {
-  console.log(props);
   return (
     <React.Fragment>
       <H1>Top of All Time</H1>
@@ -26,6 +25,7 @@ const Home = (props) => {
           <AnimeCard
             title={Anime.anime_name}
             URLTitle={Anime.api_anime_name}
+            episodeCount={Anime.episode_count}
             src={"/Images/AnimeCovers/" + Anime.api_anime_name + ".jpg"}
             key={Anime.index}
           />

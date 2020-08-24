@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
+import AnimeTooltip from "./AnimeTooltip";
 
 const Card = styled.div`
   margin: 0;
@@ -65,14 +66,15 @@ const AnimeCard = (props) => {
       </React.Fragment>
     );
   }
-
   return (
-    <Card>
-      <AnimeLink to={"/Anime/" + props.URLTitle + "/Overview"}>
-        <AnimeImage src={props.src} alt={props.title} />
-        <AnimeTitle>{props.title}</AnimeTitle>
-      </AnimeLink>
-    </Card>
+    <AnimeTooltip episodeCount={props.episodeCount} title={props.title}>
+      <Card>
+        <AnimeLink to={"/Anime/" + props.URLTitle + "/Overview"}>
+          <AnimeImage src={props.src} alt={props.title} />
+          <AnimeTitle>{props.title}</AnimeTitle>
+        </AnimeLink>
+      </Card>
+    </AnimeTooltip>
   );
 };
 
