@@ -20,6 +20,11 @@ const makeGlobalStyles = (theme) => css`
     background: ${theme.color.background};
     color: ${theme.color.text};
   }
+  html {
+    /* Firefox scrollbar styling */
+    scrollbar-color: #3cbbd6 ${theme.color.background};
+    scrollbar-width: thin;
+  }
   text {
     color: ${theme.color.text};
   }
@@ -28,6 +33,15 @@ const makeGlobalStyles = (theme) => css`
   h3,
   h4 {
     color: ${theme.color.text};
+  }
+  body::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  body::-webkit-scrollbar-track {
+    background: ${theme.color.background};
+  }
+  body::-webkit-scrollbar-thumb {
+    background: #3cbbd6;
   }
 `;
 
