@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import styled from "@emotion/styled";
 import Tooltip from "@material-ui/core/Tooltip";
 import { useLazyQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import Chip from "@material-ui/core/Chip";
 
 const HtmlTooltip = withStyles((theme) => ({
   tooltip: {
     backgroundColor: "#151F2F",
     color: "rgba(0, 0, 0, 0.87)",
-    width: 290,
+    maxWidth: 300,
     height: 160,
     fontSize: theme.typography.pxToRem(12),
     borderRadius: 10,
@@ -55,15 +56,47 @@ const months = [
   "December",
 ];
 
-const TooltipDescription = styled.div``;
+const TooltipDescription = styled.div`
+  padding-left: 5px;
+`;
+
+const GenreChip = styled.div`
+  padding-right: 5px;
+  display: inline;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+`;
+
+const colors = [
+  { background: "#3480EA", text: "#DFE3F6" },
+  { background: "#E0D59E", text: "#6A6957" },
+  { background: "#FFF280", text: "#B25B25" },
+  { background: "#EBB62D", text: "#923713" },
+  { background: "#9263E9", text: "#DCB3F4" },
+  { background: "#EBB62D", text: "#933310" },
+  { background: "#6EC8F2", text: "#2A5176" },
+  { background: "#3480EA", text: "#E7EBFA" },
+  { background: "#EBB62D", text: "#914218" },
+  { background: "#E34F85", text: "#FDD1D9" },
+  { background: "#D3E7F3", text: "#275B87" },
+  { background: "#F2870D", text: "#6B450D" },
+];
 
 export default function AnimeTooltip(props) {
-  const { classes } = props;
+  const [chipBgColor, setChipBgColor] = useState("#F55124");
+  const [chipTextColor, setChipTextColor] = useState("#F55124");
+
   const [getAnime, { called, loading, data }] = useLazyQuery(GET_ANIME_INFO, {
     onError(error) {
       console.log(error);
     },
   });
+
+  function getRandomColor() {
+    var item = colors[Math.floor(Math.random() * colors.length)];
+    setChipBgColor(item.background);
+    setChipTextColor(item.text);
+  }
 
   if (!called) {
     getAnime({
@@ -73,22 +106,48 @@ export default function AnimeTooltip(props) {
     });
   }
 
+  useEffect(() => {
+    getRandomColor();
+  });
+
   if (!loading && called && data) {
+    //Gets first 3 genres
+    let genres = [];
+    if (data.Media.genres) {
+      genres = data.Media.genres.slice(0, 3);
+    }
+
     return (
       <div>
         <HtmlTooltip
           placement="right"
           title={
             <TooltipDescription>
-              <H1 style={{ display: "inline", margin: "0" }}>
+              <H1
+                style={{
+                  display: "inline",
+                  margin: "0",
+                }}
+              >
                 {data.Media.startDate
                   ? months[data.Media.startDate.month] +
                     " " +
                     data.Media.startDate.year
                   : "N/A"}
               </H1>
-              <div style={{ display: "inline", paddingTop: "10px" }}>
-                <H1 style={{ display: "inline", paddingLeft: "30px" }}>
+              <div
+                style={{
+                  display: "inline",
+                  paddingTop: "10px",
+                }}
+              >
+                <H1
+                  style={{
+                    display: "inline",
+                    paddingLeft: "30px",
+                    paddingRight: "5px",
+                  }}
+                >
                   {data.Media.averageScore > 75 ? (
                     <InsertEmoticonIcon style={{ fill: "green" }} />
                   ) : data.Media.averageScore > 65 ? (
@@ -98,7 +157,12 @@ export default function AnimeTooltip(props) {
                   )}
                 </H1>
               </div>
-              <H1 style={{ display: "inline", margin: "0" }}>
+              <H1
+                style={{
+                  display: "inline",
+                  margin: "0",
+                }}
+              >
                 {data.Media.averageScore + "%"}
               </H1>
               <H4>{props.episodeCount === 1 ? "Movie" : "Tv Show"}</H4>
@@ -107,7 +171,17 @@ export default function AnimeTooltip(props) {
                   ? ""
                   : props.episodeCount + " Episodes"}
               </H4>
-              <H4>{data.Media.genres}</H4>
+              {genres.map((genre) => (
+                <GenreChip>
+                  <Chip
+                    label={genre}
+                    style={{
+                      color: chipTextColor,
+                      backgroundColor: chipBgColor,
+                    }}
+                  />
+                </GenreChip>
+              ))}
               <H4>Popularity: {data.Media.averageScore}</H4>
             </TooltipDescription>
           }
