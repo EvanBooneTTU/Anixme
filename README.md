@@ -51,4 +51,4 @@ The frontend of Anixme is built in React. The data scraped using beautifulSoup i
 
 ## Mobile
 
-![Mobile](screenshots/mobile.png)
+![Mobile](screenshots/mobile.jpg)
