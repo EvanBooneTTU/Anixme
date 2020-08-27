@@ -19,8 +19,6 @@ The frontend of Anixme is built in React. The data scraped using beautifulSoup i
 
 [![Video](screenshots/banner.png)](https://youtu.be/ANbUjLQMvzE "Anixme Demo")
 
-## UI
-
 ### Home
 
 ![Home](screenshots/homeDark.png)
