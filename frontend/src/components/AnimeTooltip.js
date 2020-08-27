@@ -12,7 +12,7 @@ const HtmlTooltip = withStyles((theme) => ({
     backgroundColor: "#151F2F",
     color: "rgba(0, 0, 0, 0.87)",
     maxWidth: 300,
-    height: 160,
+    height: 140,
     fontSize: theme.typography.pxToRem(12),
     borderRadius: 10,
   },
@@ -61,10 +61,14 @@ const TooltipDescription = styled.div`
 `;
 
 const GenreChip = styled.div`
-  padding-right: 5px;
+  padding-right: 10px;
   display: inline;
   font-family: "Fira Sans", sans-serif;
   font-weight: 600;
+`;
+
+const Chips = styled.div`
+  padding-top: 8px;
 `;
 
 const colors = [
@@ -110,7 +114,13 @@ export default function AnimeTooltip(props) {
     getRandomColor();
   });
 
-  if (!loading && called && data) {
+  if (
+    !loading &&
+    called &&
+    data &&
+    data.Media.startDate &&
+    data.Media.averageScore
+  ) {
     //Gets first 3 genres
     let genres = [];
     if (data.Media.genres) {
@@ -165,24 +175,24 @@ export default function AnimeTooltip(props) {
               >
                 {data.Media.averageScore + "%"}
               </H1>
-              <H4>{props.episodeCount === 1 ? "Movie" : "Tv Show"}</H4>
-              <H4>
+              <H4 style={{ whiteSpace: "pre-wrap" }}>
                 {props.episodeCount === 1
-                  ? ""
-                  : props.episodeCount + " Episodes"}
+                  ? "Movie"
+                  : "Tv Show    •    " + props.episodeCount + " Episodes"}
               </H4>
-              {genres.map((genre) => (
-                <GenreChip>
-                  <Chip
-                    label={genre}
-                    style={{
-                      color: chipTextColor,
-                      backgroundColor: chipBgColor,
-                    }}
-                  />
-                </GenreChip>
-              ))}
-              <H4>Popularity: {data.Media.averageScore}</H4>
+              <Chips>
+                {genres.map((genre) => (
+                  <GenreChip>
+                    <Chip
+                      label={genre}
+                      style={{
+                        color: chipTextColor,
+                        backgroundColor: chipBgColor,
+                      }}
+                    />
+                  </GenreChip>
+                ))}
+              </Chips>
             </TooltipDescription>
           }
         >
@@ -191,25 +201,6 @@ export default function AnimeTooltip(props) {
       </div>
     );
   } else {
-    return (
-      <div>
-        <HtmlTooltip
-          placement="right"
-          title={
-            <TooltipDescription>
-              <H4>{props.title}</H4>
-              <H4>{props.episodeCount === 1 ? "Movie" : "Tv Show"}</H4>
-              <H4>
-                {props.episodeCount === 1
-                  ? ""
-                  : props.episodeCount + " Episodes"}
-              </H4>
-            </TooltipDescription>
-          }
-        >
-          {props.children}
-        </HtmlTooltip>
-      </div>
-    );
+    return props.children;
   }
 }
