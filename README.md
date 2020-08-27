@@ -19,31 +19,31 @@ The frontend of Anixme is built in React. The data scraped using beautifulSoup i
 
 [![Video](screenshots/banner.png)](https://youtu.be/ANbUjLQMvzE "Anixme Demo")
 
-### Home
+## Home
 
 ![Home](screenshots/homeDark.png)
 
 ![Home Light](screenshots/homeLight.png)
 
-### Popular Animes
+## Popular Animes
 
 ![Popular Animes](screenshots/popular.png)
 
-### Anime
+## Anime
 
 ![Anime Banner](screenshots/banner.png)
 
-### Anime Overview
+## Anime Overview
 
 ![Anime Overview](screenshots/overview.png)
 
-### Video
+## Video
 
 ![Video Dark](screenshots/videoDark.png)
 
 ![Video Light](screenshots/videoLight.png)
 
-### Search Results
+## Search Results
 
 ![Search Results](screenshots/searchResults.png)
 
